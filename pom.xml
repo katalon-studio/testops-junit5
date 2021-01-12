@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.katalon</groupId>
+  <artifactId>testops-junit5</artifactId>
+  <name>TestOps Junit5</name>
+  <version>1.0.0</version>
+  <url>https://github.com/katalon-studio/testops-junit5</url>
+  <description>Katalon TestOps SDK</description>
+
+  <organization>
+    <name>Katalon, LLC.</name>
+    <url>https://www.katalon.com</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>License Agreement for Katalon Automation Framework</name>
+      <url>https://github.com/katalon-studio/utils/blob/master/LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Katalon Team</name>
+      <email>info@katalon.com</email>
+      <organization>Katalon, LLC.</organization>
+      <organizationUrl>https://www.katalon.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com:katalon-studio/testops-junit5.git</connection>
+    <developerConnection>scm:git:git@github.com:katalon-studio/testops-junit5.git</developerConnection>
+    <url>https://github.com/katalon-studio/testops-junit5</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <issueManagement>
+    <system>github</system>
+    <url>https://github.com/katalon-studio/testops-junit5/issues</url>
+  </issueManagement>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <junit-version>4.13.1</junit-version>
+    <sl4j-version>1.7.30</sl4j-version>
+    <testops-commons-version>1.0.0</testops-commons-version>
+    <apache-common-lang3.version>3.11</apache-common-lang3.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-launcher</artifactId>
+      <version>1.7.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${sl4j-version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${sl4j-version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.katalon</groupId>
+      <artifactId>testops-commons</artifactId>
+      <version>${testops-commons-version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${apache-common-lang3.version}</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+  </build>
+</project>
