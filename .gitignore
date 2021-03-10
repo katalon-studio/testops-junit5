@@ -1,2 +1,4 @@
 /.idea/
 /target/
+testops-junit5.iml
+*.DS_Store
