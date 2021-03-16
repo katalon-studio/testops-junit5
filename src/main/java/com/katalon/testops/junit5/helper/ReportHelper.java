@@ -50,9 +50,11 @@ public final class ReportHelper {
     private static Status getStatus(TestExecutionResult testExecutionResult) {
         switch (testExecutionResult.getStatus()) {
             case FAILED:
-            case ABORTED:
                 return Status.FAILED;
-            case SUCCESSFUL: return Status.PASSED;
+            case ABORTED:
+                return Status.INCOMPLETE;
+            case SUCCESSFUL:
+                return Status.PASSED;
         }
         return Status.INCOMPLETE;
     }
