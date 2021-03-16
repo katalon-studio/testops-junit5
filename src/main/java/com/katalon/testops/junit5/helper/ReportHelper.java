@@ -38,12 +38,9 @@ public final class ReportHelper {
 
         if (testResult.getStatus() != Status.PASSED) {
             if (testResult.getStatus() == Status.SKIPPED) {
-                testResult.setErrorMessage(testCaseExecution.getSkipMessage());
+                testResult.addFailure(testCaseExecution.getSkipMessage(), null);
             } else {
-                testExecutionResult.getThrowable().ifPresent((throwable -> {
-                    testResult.setErrorMessage(getErrorMessage(throwable));
-                    testResult.setStackTrace(getStackTraceAsString(throwable));
-                }));
+                testExecutionResult.getThrowable().ifPresent(testResult::addFailure);
             }
         }
 
