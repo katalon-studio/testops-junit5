@@ -63,7 +63,7 @@
     <junit-version>4.13.1</junit-version>
     <sl4j-version>1.7.30</sl4j-version>
     <testops-commons-version>1.1.6</testops-commons-version>
-    <apache-common-lang3.version>3.11</apache-common-lang3.version>
+    <apache-common-lang3.version>3.12.0</apache-common-lang3.version>
   </properties>
 
   <dependencies>
