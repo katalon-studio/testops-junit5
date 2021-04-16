@@ -13,6 +13,10 @@ import static com.katalon.testops.commons.helper.StringHelper.getStackTraceAsStr
 
 public final class ReportHelper {
 
+    private ReportHelper() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Metadata createMetadata() {
         Metadata metadata = new Metadata();
         metadata.setFramework("junit5");
@@ -38,12 +42,9 @@ public final class ReportHelper {
 
         if (testResult.getStatus() != Status.PASSED) {
             if (testResult.getStatus() == Status.SKIPPED) {
-                testResult.setErrorMessage(testCaseExecution.getSkipMessage());
+                testResult.addFailure(testCaseExecution.getSkipMessage(), null);
             } else {
-                testExecutionResult.getThrowable().ifPresent((throwable -> {
-                    testResult.setErrorMessage(getErrorMessage(throwable));
-                    testResult.setStackTrace(getStackTraceAsString(throwable));
-                }));
+                testExecutionResult.getThrowable().ifPresent(testResult::addFailure);
             }
         }
 
@@ -53,9 +54,11 @@ public final class ReportHelper {
     private static Status getStatus(TestExecutionResult testExecutionResult) {
         switch (testExecutionResult.getStatus()) {
             case FAILED:
-            case ABORTED:
                 return Status.FAILED;
-            case SUCCESSFUL: return Status.PASSED;
+            case ABORTED:
+                return Status.INCOMPLETE;
+            case SUCCESSFUL:
+                return Status.PASSED;
         }
         return Status.INCOMPLETE;
     }
