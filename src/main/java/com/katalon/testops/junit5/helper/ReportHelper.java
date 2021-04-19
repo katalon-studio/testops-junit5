@@ -44,7 +44,7 @@ public final class ReportHelper {
             if (testResult.getStatus() == Status.SKIPPED) {
                 testResult.addFailure(testCaseExecution.getSkipMessage(), null);
             } else {
-                testExecutionResult.getThrowable().ifPresent(testResult::addFailure);
+                testExecutionResult.getThrowable().ifPresent(testResult::addError);
             }
         }
 
