@@ -135,6 +135,7 @@ public class TestRunManager {
         TestCaseExecution testCaseExecution = new TestCaseExecution(testIdentifier, testSuites.get(testIdentifier.getParentId().get()));
         testCaseExecution.setSkipped(true);
         testCaseExecution.setSkipMessage(reason);
+        testCaseExecution.setMethodNames(toClassMethodName(testIdentifier));
         TestResult testResult = ReportHelper.createTestResult(testCaseExecution);
         reportLifecycle.stopTestCase(testResult);
     }
